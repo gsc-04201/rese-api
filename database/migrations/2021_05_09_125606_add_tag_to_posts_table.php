@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class DropColumnTagColumn extends Migration
+class AddTagToPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class DropColumnTagColumn extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('area_id');
-            $table->dropColumn('genre_id');
+        Schema::table('stores', function (Blueprint $table) {
+            $table->string('area_name');
+            $table->string('genre_name');
         });
     }
 
@@ -26,7 +26,7 @@ class DropColumnTagColumn extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('stores', function (Blueprint $table) {
             //
         });
     }

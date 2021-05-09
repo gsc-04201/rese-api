@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTagToStoresTable extends Migration
+class DropColumnTagColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddTagToStoresTable extends Migration
     public function up()
     {
         Schema::table('stores', function (Blueprint $table) {
-            $table->string('area_id');
-            $table->string('genre_id');
+            $table->dropColumn('area_id');
+            $table->dropColumn('genre_id');
         });
     }
 
