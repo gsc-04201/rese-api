@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTagToUsersTable extends Migration
+class AddTagToStoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddTagToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('stores', function (Blueprint $table) {
             $table->string('area_id');
             $table->string('genre_id');
         });
@@ -26,7 +26,7 @@ class AddTagToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('stores', function (Blueprint $table) {
             //
         });
     }
