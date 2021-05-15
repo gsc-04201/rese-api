@@ -18,7 +18,14 @@ class CreateStoresTable extends Migration
             $table->string('name');
             $table->string('img');
             $table->string('detail');
-            $table->string('user_id');
+            $table->foreignId('area_id')
+            ->constrained('areas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->foreignId('genre_id')
+            ->constrained('genres')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->timestamps();
         });
     }

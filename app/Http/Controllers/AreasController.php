@@ -48,6 +48,7 @@ class AreasController extends Controller
     public function show(Area $area)
     {
         $item = Area::where('id', $area->id)->first();
+        $item = $item->store;
         if ($item) {
             return response()->json([
                 'message' => 'OK',

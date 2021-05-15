@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Store;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
-class StoresController extends Controller
+class ReservationsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class StoresController extends Controller
      */
     public function index()
     {
-        $items = Store::all();
+        $items = Reservation::all();
         return response()->json([
             'message' => 'OK',
             'data' => $items
@@ -29,10 +29,12 @@ class StoresController extends Controller
      */
     public function store(Request $request)
     {
-        $item = new Store;
-        $item->name = $request->name;
-        $item->img = $request->img;
-        $item->detail = $request->detail;
+        $item = new Reservation;
+        $item->user_id = $request->user_id;
+        $item->store_id = $request->store_id;
+        $item->date = $request->date;
+        $item->time = $request->time;
+        $item->number = $request->number;
         $item->save();
         return response()->json([
             'message' => 'Created successfully',
@@ -43,16 +45,18 @@ class StoresController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function show(Store $store)
+    public function show(Reservation $reservation)
     {
-        $item = Store::where('id', $store->id)->first();
-        if ($item) {
+        $item = Reservation::where('id', $reservation->id)->first();
+        $items = $item->reservations;
+
+        if ($items) {
             return response()->json([
-                'message' => 'OK',
-                'data' => $item
+                'message' => 'OK Success!',
+                'data' => $items
             ], 200);
         } else {
             return response()->json([
@@ -65,46 +69,32 @@ class StoresController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Store $store)
+    public function update(Request $request, Reservation $reservation)
     {
-        $item = Store::where('id', $store->id)->first();
-        $item->name = $request->name;
-        $item->img = $request->img;
-        $item->detail = $request->detail;
-        $item->user_id = $request->user_id;
-        $item->area_name = $request->area_name;
-        $item->genre_name = $request->genre_name;
-        $item->save();
-        if ($item) {
-            return response()->json([
-                'message' => $item,
-            ], 200);
-        } else {
-            return response()->json([
-                'message' => 'Not found',
-            ], 404);
-        }
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Store  $store
+     * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Store $store)
+    public function destroy(Reservation $reservation)
     {
-        $item = Store::where('id', $store->id)->delete();
+        $item = Reservation::where('id', $reservation->id)->delete();
+
         if ($item) {
             return response()->json([
-                'message' => $item,
+                'message' => 'OK Success!',
+                'data' => $item
             ], 200);
         } else {
             return response()->json([
-                'message' => $item,
+                'message' => 'Not found',
             ], 404);
         }
     }

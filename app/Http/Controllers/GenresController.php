@@ -47,6 +47,7 @@ class GenresController extends Controller
     public function show(Genre $genre)
     {
         $item = Genre::where('id', $genre->id)->first();
+        $item = $item->store;
         if ($item) {
             return response()->json([
                 'message' => 'OK',
