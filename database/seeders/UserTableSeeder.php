@@ -16,6 +16,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $param = [
+            'id' => '1',
             'name' => 'keiya',
             'email' => 'aaa',
             'password' => 'password',
@@ -23,6 +24,7 @@ class UserTableSeeder extends Seeder
         ];
         DB::table('users')->insert($param);
         $param = [
+            'id' => '2',
             'name' => 'keiya2',
             'email' => 'bbb',
             'password' => 'password2',
@@ -30,6 +32,7 @@ class UserTableSeeder extends Seeder
         ];
         DB::table('users')->insert($param);
         $param = [
+            'id' => '3',
             'name' => 'keiya3',
             'email' => 'ccc',
             'password' => 'password3',
