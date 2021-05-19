@@ -33,6 +33,8 @@ class StoresController extends Controller
         $item->name = $request->name;
         $item->img = $request->img;
         $item->detail = $request->detail;
+        $item->area_id = $request->area_id;
+        $item->genre_id = $request->genre_id;
         $item->save();
         return response()->json([
             'message' => 'Created successfully',
@@ -74,9 +76,8 @@ class StoresController extends Controller
         $item->name = $request->name;
         $item->img = $request->img;
         $item->detail = $request->detail;
-        $item->user_id = $request->user_id;
-        $item->area_name = $request->area_name;
-        $item->genre_name = $request->genre_name;
+        $item->area_id = $request->area_id;
+        $item->genre_id = $request->genre_id;
         $item->save();
         if ($item) {
             return response()->json([
