@@ -14,10 +14,10 @@ class StoresController extends Controller
      */
     public function index()
     {
-        $items = Store::all();
+        $items = Store::with('area', 'genre')->find(1);
         return response()->json([
             'message' => 'OK',
-            'data' => $items
+            'data' => $items,
         ], 200);
     }
 

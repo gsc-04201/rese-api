@@ -22,6 +22,8 @@ Route::get('/user', [UsersController::class, 'get']);
 Route::put('/user', [UsersController::class, 'put']);
 Route::post('/logout', [LogoutController::class, 'post']);
 
+// Route::get('/search', [SearchController::class, 'get']);
+
 Route::apiResource('/area', AreasController::class);
 Route::apiResource('/genre', GenresController::class);
 Route::apiResource('/store', StoresController::class);

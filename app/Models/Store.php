@@ -14,5 +14,8 @@ class Store extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+    // protected $fillable = [
+    //     'area_id', 'genre_id', 'name',
+    // ];
 
 }
