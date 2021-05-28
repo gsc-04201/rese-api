@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Area;
+use App\Models\Store;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -45,10 +46,11 @@ class AreasController extends Controller
      * @param  \App\Models\Area  $area
      * @return \Illuminate\Http\Response
      */
-    public function show(Area $area)
+    public function show(Store $area)
     {
-        $item = Area::where('id', $area->id)->first();
-        $item = $item->store;
+        $item = Store::with('area', 'genre');
+        $item = $item->where('area_id', $area->id)->get();
+
         if ($item) {
             return response()->json([
                 'message' => 'OK',

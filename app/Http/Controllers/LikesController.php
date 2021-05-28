@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Like;
+
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class LikesController extends Controller
@@ -14,7 +16,18 @@ class LikesController extends Controller
      */
     public function index()
     {
-        $items = Like::all();
+        $items = Like::with('store')->get();
+        // $items = DB::table('stores')
+        // ->join('areas', 'area_id', '=', 'areas.id')
+        // ->join('genres', 'genre_id', '=', 'genres.id')
+        // $items = DB::table('stores')
+        // ->join('areas', 'stores.area_id', '=', 'genres.id')->get();
+        // $items->join('areas', 'stores.area_id', '=', 'areas.id');
+        // $contents = $items->get();
+
+
+
+
         return response()->json([
             'message' => 'OK',
             'data' => $items
@@ -47,13 +60,35 @@ class LikesController extends Controller
      */
     public function show(Like $like)
     {
-        $item = Like::where('id', $like->id)->first();
-        $items = $item->likes;
 
-        if ($items) {
+        $item = Like::with('store.area', 'store.genre',)
+        ->where('user_id', $like->id)
+        ->get();
+
+        // $item = Like::where('user_id', $like->id)
+        // ->join('stores', 'stores.area_id', '=', 'stores.id')
+        // ->get();
+
+        // $item = $item->store();
+
+        // $items = $item->where($items);
+
+        // $item = Store::with('area', 'genre')->get();
+
+        // $items = $items->$item;
+
+        // $items = Like::where('user_id', $like->id)->Store::with('area','genre')->get()
+        
+
+        // $items = Like::where('user_id', $like->id)->with('store')->get();
+
+        // $items = Store::with('area', 'genre');
+        // $items = $items->where('user_id', $like->id)->get();
+
+        if ($item) {
             return response()->json([
                 'message' => 'OK Success!',
-                'data' => $items
+                'data' => $item
             ], 200);
         } else {
             return response()->json([

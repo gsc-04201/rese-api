@@ -14,6 +14,12 @@ class Store extends Model
     {
         return $this->belongsTo(Genre::class);
     }
+
+
+    // public function like()
+    // {
+    //     return $this->hasMany(Like::class);
+    // }
     // protected $fillable = [
     //     'area_id', 'genre_id', 'name',
     // ];

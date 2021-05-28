@@ -16,11 +16,13 @@ class Reservation extends Model
         return $this->belongsTo(Store::Class);
     }
 
-    protected $primaryKey = 'user_id';
-    public function reservations()
-    {
-        return $this->hasMany(Reservation::Class, 'user_id');
-    }
+
+
+    // protected $primaryKey = 'user_id';
+    // public function reservations()
+    // {
+    //     return $this->hasOne(Reservatios::Class, 'user_id');
+    // }
     
     // use HasFactory;
 }

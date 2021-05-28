@@ -14,7 +14,8 @@ class StoresController extends Controller
      */
     public function index()
     {
-        $items = Store::with('area', 'genre')->find(1);
+
+        $items = Store::with('area', 'genre')->get();
         return response()->json([
             'message' => 'OK',
             'data' => $items,

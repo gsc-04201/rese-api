@@ -14,7 +14,7 @@ class ReservationsController extends Controller
      */
     public function index()
     {
-        $items = Reservation::all();
+        $items = Reservation::with('store')->get();
         return response()->json([
             'message' => 'OK',
             'data' => $items
@@ -50,9 +50,13 @@ class ReservationsController extends Controller
      */
     public function show(Reservation $reservation)
     {
-        $item = Reservation::where('id', $reservation->id)->first();
-        $items = $item->reservations;
+        $items = Reservation::with('store.area', 'store.genre',)
+        ->where('user_id', $reservation->id)
+            ->get();
 
+        // $items = Reservation::where('user_id', $reservation->id)->with('store')->get();
+        // $items = $item->with('area')->get();
+        // $items = Store::with('area');
         if ($items) {
             return response()->json([
                 'message' => 'OK Success!',

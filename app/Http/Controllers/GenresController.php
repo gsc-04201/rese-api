@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class GenresController extends Controller
@@ -44,10 +45,10 @@ class GenresController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function show(Genre $genre)
+    public function show(Store $genre)
     {
-        $item = Genre::where('id', $genre->id)->first();
-        $item = $item->store;
+        $item = Store::with('area', 'genre');
+        $item = $item->where('genre_id', $genre->id)->get();
         if ($item) {
             return response()->json([
                 'message' => 'OK',
