@@ -15,6 +15,7 @@ class ReservationTableSeeder extends Seeder
     public function run()
     {
         $param = [
+            'id' => '1',
             'user_id' => '1',
             'store_id' => '1',
             'date' => '2021-04-01',
@@ -23,6 +24,7 @@ class ReservationTableSeeder extends Seeder
         ];
         DB::table('reservations')->insert($param);
         $param = [
+            'id' => '2',
             'user_id' => '1',
             'store_id' => '2',
             'date' => '2021-04-01',
@@ -31,6 +33,7 @@ class ReservationTableSeeder extends Seeder
         ];
         DB::table('reservations')->insert($param);
         $param = [
+            'id' => '3',
             'user_id' => '1',
             'store_id' => '3',
             'date' => '2021-04-01',

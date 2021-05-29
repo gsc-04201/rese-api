@@ -61,29 +61,13 @@ class LikesController extends Controller
     public function show(Like $like)
     {
 
+        // $item = Like::with('store.area', 'store.genre',)
+        // ->where('user_id', $like->id)
+        // ->get();
         $item = Like::with('store.area', 'store.genre',)
         ->where('user_id', $like->id)
         ->get();
 
-        // $item = Like::where('user_id', $like->id)
-        // ->join('stores', 'stores.area_id', '=', 'stores.id')
-        // ->get();
-
-        // $item = $item->store();
-
-        // $items = $item->where($items);
-
-        // $item = Store::with('area', 'genre')->get();
-
-        // $items = $items->$item;
-
-        // $items = Like::where('user_id', $like->id)->Store::with('area','genre')->get()
-        
-
-        // $items = Like::where('user_id', $like->id)->with('store')->get();
-
-        // $items = Store::with('area', 'genre');
-        // $items = $items->where('user_id', $like->id)->get();
 
         if ($item) {
             return response()->json([
