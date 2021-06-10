@@ -65,8 +65,8 @@ class LikesController extends Controller
         // ->where('user_id', $like->id)
         // ->get();
         $item = Like::with('store.area', 'store.genre',)
-        ->where('user_id', $like->id)
-        ->get();
+            ->where('user_id', $like->id)
+            ->get();
 
 
         if ($item) {
@@ -101,7 +101,7 @@ class LikesController extends Controller
      */
     public function destroy(Like $like)
     {
-        $item = Like::where('id', $like->id)->delete();
+        $item = Like::where('store_id', $like->id)->delete();
 
         if ($item) {
             return response()->json([
