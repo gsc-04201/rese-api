@@ -21,10 +21,11 @@ Route::post('/login', [LoginController::class, 'post']);
 Route::get('/user', [UsersController::class, 'get']);
 Route::put('/user', [UsersController::class, 'put']);
 Route::post('/logout', [LogoutController::class, 'post']);
-
+// Route::delete('v1/users/{users_id}/favorites', [FavoritesV2Controller::class, 'delete']);
 
 Route::apiResource('/area', AreasController::class);
 Route::apiResource('/genre', GenresController::class);
 Route::apiResource('/store', StoresController::class);
 Route::apiResource('/reservation', ReservationsController::class);
 Route::apiResource('/like', LikesController::class);
+// Route::delete('/like/{users_id}/delete', [LikesController::class, 'delete']);

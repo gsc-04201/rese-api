@@ -61,9 +61,6 @@ class LikesController extends Controller
     public function show(Like $like)
     {
 
-        // $item = Like::with('store.area', 'store.genre',)
-        // ->where('user_id', $like->id)
-        // ->get();
         $item = Like::with('store.area', 'store.genre',)
             ->where('user_id', $like->id)
             ->get();
@@ -99,19 +96,57 @@ class LikesController extends Controller
      * @param  \App\Models\Like  $like
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Like $like)
-    {
-        $item = Like::where('store_id', $like->id)->delete();
+    // public function destroy(Like $like)
+    // {
+    //     $item = Like::where('store_id', $like->id)->delete();
 
-        if ($item) {
+    //     if ($item) {
+    //         return response()->json([
+    //             'message' => 'Delete Success!',
+    //             'data' => $item
+    //         ], 200);
+    //     } else {
+    //         return response()->json([
+    //             'message' => 'Not found',
+    //         ], 404);
+    //     }
+    // }
+    public function destroy($users_id, Request $request)
+    {
+        $like = Like::deleteLike($users_id, $request);
+        if ($like) {
             return response()->json([
-                'message' => 'Delete Success!',
-                'data' => $item
+                'message' => 'Favorite deleted successfully'
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Not found',
+                'message' => 'Favorite not found'
             ], 404);
         }
+        // $item = Like::where('store_id', $like->id)->delete();
+
+        // if ($item) {
+        //     return response()->json([
+        //         'message' => 'Delete Success!',
+        //         'data' => $item
+        //     ], 200);
+        // } else {
+        //     return response()->json([
+        //         'message' => 'Not found',
+        //     ], 404);
+        // }
     }
+    // public function delete($users_id, Request $request)
+    // {
+    //     $like = Like::deleteLike($users_id, $request);
+    //     if ($like) {
+    //         return response()->json([
+    //             'message' => 'Favorite deleted successfully'
+    //         ], 200);
+    //     } else {
+    //         return response()->json([
+    //             'message' => 'Favorite not found'
+    //         ], 404);
+    //     }
+    // }
 }
