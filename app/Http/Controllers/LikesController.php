@@ -123,30 +123,5 @@ class LikesController extends Controller
                 'message' => 'Favorite not found'
             ], 404);
         }
-        // $item = Like::where('store_id', $like->id)->delete();
-
-        // if ($item) {
-        //     return response()->json([
-        //         'message' => 'Delete Success!',
-        //         'data' => $item
-        //     ], 200);
-        // } else {
-        //     return response()->json([
-        //         'message' => 'Not found',
-        //     ], 404);
-        // }
     }
-    // public function delete($users_id, Request $request)
-    // {
-    //     $like = Like::deleteLike($users_id, $request);
-    //     if ($like) {
-    //         return response()->json([
-    //             'message' => 'Favorite deleted successfully'
-    //         ], 200);
-    //     } else {
-    //         return response()->json([
-    //             'message' => 'Favorite not found'
-    //         ], 404);
-    //     }
-    // }
 }

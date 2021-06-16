@@ -51,7 +51,9 @@ class StoresController extends Controller
      */
     public function show(Store $store)
     {
-        $item = Store::where('id', $store->id)->first();
+        $item = Store::with('area', 'genre',)
+        ->where('id', $store->id)
+        ->get();
         if ($item) {
             return response()->json([
                 'message' => 'OK',
