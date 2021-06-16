@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+
 
 class Reservation extends Model
 {
@@ -16,13 +18,9 @@ class Reservation extends Model
         return $this->belongsTo(Store::Class);
     }
 
-
-
-    // protected $primaryKey = 'user_id';
-    // public function reservations()
-    // {
-    //     return $this->hasOne(Reservatios::Class, 'user_id');
-    // }
-    
-    // use HasFactory;
+    public static function deleteReservation($users_id, Request $request)
+    {
+        $reservation = Reservation::where('user_id', $users_id)->where('store_id', $request->store_id)->delete();
+        return $reservation;
+    }
 }

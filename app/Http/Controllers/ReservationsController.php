@@ -87,18 +87,31 @@ class ReservationsController extends Controller
      * @param  \App\Models\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservation $reservation)
-    {
-        $item = Reservation::where('id', $reservation->id)->delete();
+    // public function destroy(Reservation $reservation)
+    // {
+    //     $item = Reservation::where('id', $reservation->id)->delete();
 
-        if ($item) {
+    //     if ($item) {
+    //         return response()->json([
+    //             'message' => 'OK Success!',
+    //             'data' => $item
+    //         ], 200);
+    //     } else {
+    //         return response()->json([
+    //             'message' => 'Not found',
+    //         ], 404);
+    //     }
+    // }
+    public function destroy($users_id, Request $request)
+    {
+        $reservation = Reservation::deleteReservation($users_id, $request);
+        if ($reservation) {
             return response()->json([
-                'message' => 'OK Success!',
-                'data' => $item
+                'message' => 'Favorite deleted successfully'
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Not found',
+                'message' => 'Favorite not found'
             ], 404);
         }
     }

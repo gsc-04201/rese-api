@@ -23,7 +23,7 @@ class CreateReservationsTable extends Migration
             ->constrained('stores')
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->datetime('date');
+            $table->date('date');
             $table->time('time');
             $table->integer('number');
             $table->timestamps();
