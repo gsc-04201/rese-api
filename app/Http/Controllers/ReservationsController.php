@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class ReservationsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $items = Reservation::with('store')->get();
@@ -21,12 +16,6 @@ class ReservationsController extends Controller
         ], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $item = new Reservation;
@@ -42,21 +31,12 @@ class ReservationsController extends Controller
         ], 200);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
     public function show(Reservation $reservation)
     {
         $items = Reservation::with('store.area', 'store.genre',)
         ->where('user_id', $reservation->id)
-            ->get();
+        ->get();
 
-        // $items = Reservation::where('user_id', $reservation->id)->with('store')->get();
-        // $items = $item->with('area')->get();
-        // $items = Store::with('area');
         if ($items) {
             return response()->json([
                 'message' => 'OK Success!',
@@ -69,32 +49,20 @@ class ReservationsController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Reservation $reservation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Reservation  $reservation
-     * @return \Illuminate\Http\Response
-     */
-    // public function destroy(Reservation $reservation)
+    // 更新機能保留
+    // public function update($user_id, Reservation $reservation, Request $request,)
     // {
-    //     $item = Reservation::where('id', $reservation->id)->delete();
-
-    //     if ($item) {
+    //     $reservation = Reservation::putReservation($user_id, $request);
+    //     // $item = Reservation::where($user_id, $request->store_id)->first();
+    //     $reservation->user_id = $request->user_id;
+    //     $reservation->store_id = $request->store_id;
+    //     $reservation->date = $request->date;
+    //     $reservation->time = $request->time;
+    //     $reservation->number = $request->number;
+    //     $reservation->save();
+    //     if ($reservation) {
     //         return response()->json([
-    //             'message' => 'OK Success!',
-    //             'data' => $item
+    //             'message' => 'Updated successfully',
     //         ], 200);
     //     } else {
     //         return response()->json([
@@ -102,9 +70,11 @@ class ReservationsController extends Controller
     //         ], 404);
     //     }
     // }
-    public function destroy($users_id, Request $request)
+    
+
+    public function destroy($user_id, Request $request)
     {
-        $reservation = Reservation::deleteReservation($users_id, $request);
+        $reservation = Reservation::deleteReservation($user_id, $request);
         if ($reservation) {
             return response()->json([
                 'message' => 'Favorite deleted successfully'

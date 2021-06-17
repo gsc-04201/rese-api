@@ -31,9 +31,9 @@ class Like extends Model
     // {
     //     return $this->belongsTo(Genre::class);
     // }
-    public static function deleteLike($users_id, Request $request)
+    public static function deleteLike($user_id, Request $request)
     {
-        $favorite = Like::where('user_id', $users_id)->where('store_id', $request->store_id)->delete();
+        $favorite = Like::where('user_id', $user_id)->where('store_id', $request->store_id)->delete();
         return $favorite;
     }
 

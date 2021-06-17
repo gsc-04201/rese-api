@@ -18,9 +18,18 @@ class Reservation extends Model
         return $this->belongsTo(Store::Class);
     }
 
-    public static function deleteReservation($users_id, Request $request)
+
+    // 更新機能保留
+    // public static function putReservation($user_id, Request $request)
+    // {
+    //     $reservation = Reservation::where('user_id', $user_id)->where
+    //     ('store_id', $request->store_id)->first();
+    //     return $reservation;
+    // }
+
+    public static function deleteReservation($user_id, Request $request)
     {
-        $reservation = Reservation::where('user_id', $users_id)->where('store_id', $request->store_id)->delete();
+        $reservation = Reservation::where('user_id', $user_id)->where('store_id', $request->store_id)->delete();
         return $reservation;
     }
 }
