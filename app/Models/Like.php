@@ -20,17 +20,7 @@ class Like extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
-        // return $this->belongsTo(Store::class);
-        // return $this->morphTo();
     }
-    // public function area()
-    // {
-    //     return $this->belongsTo(Area::class);
-    // }
-    // public function genre()
-    // {
-    //     return $this->belongsTo(Genre::class);
-    // }
     public static function deleteLike($user_id, Request $request)
     {
         $favorite = Like::where('user_id', $user_id)->where('store_id', $request->store_id)->delete();

@@ -77,11 +77,11 @@ class ReservationsController extends Controller
         $reservation = Reservation::deleteReservation($user_id, $request);
         if ($reservation) {
             return response()->json([
-                'message' => 'Favorite deleted successfully'
+                'message' => 'reservation deleted successfully'
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Favorite not found'
+                'message' => 'reservation not found'
             ], 404);
         }
     }

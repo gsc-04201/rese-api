@@ -47,10 +47,10 @@ class LikesController extends Controller
         }
     }
 
-    public function update(Request $request, Like $like)
-    {
-        //
-    }
+    // public function update(Request $request, Like $like)
+    // {
+    //     //
+    // }
 
     public function destroy($user_id, Request $request)
     {
