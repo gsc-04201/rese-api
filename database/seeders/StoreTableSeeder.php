@@ -68,6 +68,131 @@ class StoreTableSeeder extends Seeder
             'genre_id' => '2',
         ];
         DB::table('stores')->insert($param);
-
+        $param = [
+            'id' => '7',
+            'name' => 'JJ',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg',
+            'detail' => 'イタリア製ピザ窯芳ばしく焼き上げた極薄のミラノピッツァや厳選されたワインをお楽しみいただけます。女子会や男子会、記念日やお誕生日会にもオススメです。',
+            'area_id' => '2',
+            'genre_id' => '4',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '8',
+            'name' => 'ラーメン極み',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/ramen.jpg',
+            'detail' => '一杯、一杯心を込めて職人が作っております。味付けは少し濃いめです。 食べやすく最後の一滴まで美味しく飲めると好評です。',
+            'area_id' => '1',
+            'genre_id' => '5',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '9',
+            'name' => '鳥雨',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg',
+            'detail' => '素材の旨味を存分に引き出す為に、塩焼を中心としたお店です。比内地鶏を中心に、厳選素材を職人が備長炭で豪快に焼き上げます。清潔な内装に包まれた大人の隠れ家で贅沢で優雅な時間をお過ごし下さい。',
+            'area_id' => '2',
+            'genre_id' => '3',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '10',
+            'name' => '築地色合',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
+            'detail' => '鮨好きの方の為の鮨屋として、迫力ある大きさの握りを1貫ずつ提供致します。',
+            'area_id' => '1',
+            'genre_id' => '1',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '11',
+            'name' => '晴海',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
+            'detail' => '毎年チャンピオン牛を買い付け、仙台市長から表彰されるほどの上質な仕入れをする精肉店オーナーの本当に美味しい国産牛を食べてもらいたいという思いから誕生したお店です。',
+            'area_id' => '2',
+            'genre_id' => '2',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '12',
+            'name' => '三子',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
+            'detail' => '最高級の美味しいお肉で日々の疲れを軽減していただければと贅沢にサーロインを盛り込んだ御膳をご用意しております。',
+            'area_id' => '3',
+            'genre_id' => '2',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '13',
+            'name' => '八戒',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg',
+            'detail' => '当店自慢の鍋や焼き鳥などお好きなだけ堪能できる食べ放題プランをご用意しております。飲み放題は2時間と3時間がございます。',
+            'area_id' => '1',
+            'genre_id' => '3',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '14',
+            'name' => '福助',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
+            'detail' => 'ミシュラン掲載店で磨いた、寿司職人の旨さへのこだわりはもちろん、 食事をゆっくりと楽しんでいただける空間作りも意識し続けております。 接待や大切なお食事にはぜひご利用ください。',
+            'area_id' => '2',
+            'genre_id' => '1',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '15',
+            'name' => 'ラー北',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/ramen.jpg',
+            'detail' => 'お昼にはランチを求められるサラリーマン、夕方から夜にかけては、学生や会社帰りのサラリーマン、小上がり席もありファミリー層にも大人気です。',
+            'area_id' => '1',
+            'genre_id' => '5',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '16',
+            'name' => '翔',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/izakaya.jpg',
+            'detail' => '博多出身の店主自ら厳選した新鮮な旬の素材を使ったコース料理をご提供します。一人一人のお客様に目が届くようにしております。',
+            'area_id' => '2',
+            'genre_id' => '3',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '17',
+            'name' => '経緯',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
+            'detail' => '職人が一つ一つ心を込めて丁寧に仕上げた、江戸前鮨ならではの味をお楽しみ頂けます。鮨に合った希少なお酒も数多くご用意しております。他にはない海鮮太巻き、当店自慢の蒸し鮑、是非ご賞味下さい。',
+            'area_id' => '1',
+            'genre_id' => '1',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '18',
+            'name' => '漆',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/yakiniku.jpg',
+            'detail' => '店内に一歩足を踏み入れると、肉の焼ける音と芳香が猛烈に食欲を掻き立ててくる。そんな漆で味わえるのは至極の焼き肉です。',
+            'area_id' => '1',
+            'genre_id' => '2',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '19',
+            'name' => 'THE TOOL',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/italian.jpg',
+            'detail' => '非日常的な空間で日頃の疲れを癒し、ゆったりとした上質な時間を過ごせる大人の為のレストラン&バーです。',
+            'area_id' => '3',
+            'genre_id' => '4',
+        ];
+        DB::table('stores')->insert($param);
+        $param = [
+            'id' => '20',
+            'name' => '木船',
+            'img' => 'https://coachtech-matter.s3-ap-northeast-1.amazonaws.com/image/sushi.jpg',
+            'detail' => '毎日店主自ら市場等に出向き、厳選した魚介類が、お鮨をはじめとした繊細な料理に仕立てられます。また、選りすぐりの種類豊富なドリンクもご用意しております。',
+            'area_id' => '2',
+            'genre_id' => '1',
+        ];
+        DB::table('stores')->insert($param);
     }
 }
