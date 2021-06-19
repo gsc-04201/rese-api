@@ -17,25 +17,25 @@ class UserTableSeeder extends Seeder
     {
         $param = [
             'id' => '1',
-            'name' => 'test',
-            'email' => 'test@gmail.com',
-            'password' => 'test1234',
+            'name' => 'aaa',
+            'email' => 'aaa@gmail.com',
+            'password' => 'aaa1234',
 
         ];
         DB::table('users')->insert($param);
         $param = [
             'id' => '2',
-            'name' => 'test2',
-            'email' => 'test2@gmail.com',
-            'password' => 'password2',
+            'name' => 'bbb',
+            'email' => 'bbb@gmail.com',
+            'password' => 'bbb1234',
 
         ];
         DB::table('users')->insert($param);
         $param = [
             'id' => '3',
-            'name' => 'test3',
-            'email' => 'test3@gmail.com',
-            'password' => 'password3',
+            'name' => 'ccc',
+            'email' => 'ccc@gmail.com',
+            'password' => 'ccc',
 
         ];
         DB::table('users')->insert($param);
